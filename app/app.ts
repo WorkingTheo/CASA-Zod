@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import { Store } from 'express-session';
 import { configure, Plan } from "@dwp/govuk-casa";
 import express, { Request, Response } from 'express';
+import env from './zod/env';
 
 const app = (
   name: string,
@@ -42,6 +43,7 @@ const app = (
   });
 
   ancillaryRouter.use('/start', (req: Request, res: Response) => {
+    res.locals.message = env.MESSAGE;
     res.render('pages/start.njk');
   });
 

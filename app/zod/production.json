@@ -1,0 +1,9 @@
+{
+  "MESSAGE": "this is production",
+  "SERVER_PORT": 3000,
+  "CASA_MOUNT_URL": "/",
+  "SESSION_ID": "myappsessionid",
+  "SESSIONS_SECRET": "secret",
+  "SESSIONS_TTL_SECONDS": 3600,
+  "SECURE_COOKIES": false
+}

@@ -18,9 +18,10 @@ const tsProject = ts.createProject('tsconfig.json');
 task('compile-typescript', () => tsProject.src().pipe(tsProject()).js.pipe(dest(outDir)));
 
 // ------------------------ Bundle ------------------------ 
+task('zod', () => src(['./app/zod/*.json'], { base: ''}).pipe(dest(outDir + '/zod')));
 task('bundle-views', () => src(['./app/**/*.njk'], { base: '' }).pipe(dest(outDir)));
 task('bundle-locales', () => src(['./app/**/*.yaml'], { base: '' }).pipe(dest(outDir)));
-task('bundle', series(['bundle-views', 'bundle-locales']));
+task('bundle', series(['bundle-views', 'bundle-locales', 'zod']));
 
 // ------------------------ Static Assets ------------------------ 
 // we grab our custom SASS files, as well as the required stylesheets from govuk library
